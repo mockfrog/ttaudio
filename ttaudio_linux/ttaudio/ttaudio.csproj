@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{CB61C2DA-4900-4106-AFCC-7137BF8C3936}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ttaudio</RootNamespace>
+    <AssemblyName>ttaudio</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="..\..\ttaudio\App.config">
+      <Link>App.config</Link>
+    </None>
+    <None Include="..\..\ttaudio\icon.png">
+      <Link>icon.png</Link>
+    </None>
+    <None Include="..\..\ttaudio\icon.svg">
+      <Link>icon.svg</Link>
+    </None>
+    <None Include="..\..\ttaudio\note_to_pen.png">
+      <Link>note_to_pen.png</Link>
+    </None>
+    <None Include="..\..\ttaudio\note_to_pen.svg">
+      <Link>note_to_pen.svg</Link>
+    </None>
+    <None Include="..\..\ttaudio\TaskForm.resx">
+      <Link>TaskForm.resx</Link>
+    </None>
+    <None Include="..\..\ttaudio\ttaudio.ico">
+      <Link>ttaudio.ico</Link>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\ttaudio\CueProvider.cs">
+      <Link>CueProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaudio\FileTransaction.cs">
+      <Link>FileTransaction.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaudio\MainForm.cs">
+      <Link>MainForm.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaudio\MainForm.Designer.cs">
+      <Link>MainForm.Designer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaudio\Program.cs">
+      <Link>Program.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaudio\TaskForm.cs">
+      <Link>TaskForm.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaudio\TaskForm.Designer.cs">
+      <Link>TaskForm.Designer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaudio\TextboxAppender.cs">
+      <Link>TextboxAppender.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ttaenc\ttaenc.csproj">
+      <Project>{D9C2DA4F-A932-46A4-B3CF-84DAD0CE769A}</Project>
+      <Name>ttaenc</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\..\ttaudio\MainForm.resx">
+      <Link>MainForm.resx</Link>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

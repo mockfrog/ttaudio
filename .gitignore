@@ -1,2 +1,5 @@
-/ttaenc/*.user
+/*.user
 /.vs
+packages
+*.userprefs
+bin
