@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProjectGuid>{D9C2DA4F-A932-46A4-B3CF-84DAD0CE769A}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>ttaenc</RootNamespace>
     <AssemblyName>ttaenc</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -31,38 +31,14 @@
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="..\..\ttaenc\About.cs">
-      <Link>About.cs</Link>
-    </Compile>
     <Compile Include="..\..\ttaenc\Album.cs">
       <Link>Album.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ttaenc\AlbumCollection.cs">
-      <Link>AlbumCollection.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ttaenc\AlbumCollectionMeta.cs">
-      <Link>AlbumCollectionMeta.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ttaenc\AlbumMaker.cs">
-      <Link>AlbumMaker.cs</Link>
     </Compile>
     <Compile Include="..\..\ttaenc\AlbumReader.cs">
       <Link>AlbumReader.cs</Link>
     </Compile>
-    <Compile Include="..\..\ttaenc\Digest.cs">
-      <Link>Digest.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ttaenc\Extensions.cs">
-      <Link>Extensions.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ttaenc\FileTransaction.cs">
-      <Link>FileTransaction.cs</Link>
-    </Compile>
     <Compile Include="..\..\ttaenc\IOidCode.cs">
       <Link>IOidCode.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ttaenc\LogScope.cs">
-      <Link>LogScope.cs</Link>
     </Compile>
     <Compile Include="..\..\ttaenc\Oid.cs">
       <Link>Oid.cs</Link>
@@ -70,14 +46,8 @@
     <Compile Include="..\..\ttaenc\OidSvgWriter.cs">
       <Link>OidSvgWriter.cs</Link>
     </Compile>
-    <Compile Include="..\..\ttaenc\PathUtil.cs">
-      <Link>PathUtil.cs</Link>
-    </Compile>
     <Compile Include="..\..\ttaenc\Program.cs">
       <Link>Program.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ttaenc\SubProcess.cs">
-      <Link>SubProcess.cs</Link>
     </Compile>
     <Compile Include="..\..\ttaenc\TipToiPen.cs">
       <Link>TipToiPen.cs</Link>
@@ -85,6 +55,55 @@
     <Compile Include="..\..\ttaenc\Track.cs">
       <Link>Track.cs</Link>
     </Compile>
+    <Compile Include="..\..\ttaenc\Context.cs">
+      <Link>Context.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaenc\IPackageDirectoryStructure.cs">
+      <Link>IPackageDirectoryStructure.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaenc\MediaFileConverter.cs">
+      <Link>MediaFileConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaenc\Package.cs">
+      <Link>Package.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaenc\PackageBuilder.cs">
+      <Link>PackageBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaenc\PackageDirectoryStructure.cs">
+      <Link>PackageDirectoryStructure.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaenc\Picture.cs">
+      <Link>Picture.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaenc\util\About.cs">
+      <Link>util\About.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaenc\util\Digest.cs">
+      <Link>util\Digest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaenc\util\Extensions.cs">
+      <Link>util\Extensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaenc\util\FileTransaction.cs">
+      <Link>util\FileTransaction.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaenc\util\HtmlGenerator.cs">
+      <Link>util\HtmlGenerator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaenc\util\LogScope.cs">
+      <Link>util\LogScope.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaenc\util\PathUtil.cs">
+      <Link>util\PathUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaenc\util\SubProcess.cs">
+      <Link>util\SubProcess.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaenc\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="util\OS.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\ttaenc\App.config">

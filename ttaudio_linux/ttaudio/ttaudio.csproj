@@ -53,19 +53,19 @@
       <Link>ttaudio.ico</Link>
     </None>
     <None Include="packages.config" />
+    <None Include="..\..\ttaudio\note_to_pen_36.png">
+      <Link>note_to_pen_36.png</Link>
+    </None>
+    <None Include="..\..\ttaudio\printer-36-000000.png">
+      <Link>printer-36-000000.png</Link>
+    </None>
+    <None Include="..\..\ttaudio\Properties\Settings.settings">
+      <Link>Properties\Settings.settings</Link>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\ttaudio\CueProvider.cs">
       <Link>CueProvider.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ttaudio\FileTransaction.cs">
-      <Link>FileTransaction.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ttaudio\MainForm.cs">
-      <Link>MainForm.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ttaudio\MainForm.Designer.cs">
-      <Link>MainForm.Designer.cs</Link>
     </Compile>
     <Compile Include="..\..\ttaudio\Program.cs">
       <Link>Program.cs</Link>
@@ -79,6 +79,24 @@
     <Compile Include="..\..\ttaudio\TextboxAppender.cs">
       <Link>TextboxAppender.cs</Link>
     </Compile>
+    <Compile Include="..\..\ttaudio\Document.cs">
+      <Link>Document.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaudio\Editor.cs">
+      <Link>Editor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaudio\Editor.Designer.cs">
+      <Link>Editor.Designer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaudio\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaudio\Properties\Resources.Designer.cs">
+      <Link>Properties\Resources.Designer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaudio\Properties\Settings.Designer.cs">
+      <Link>Properties\Settings.Designer.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -90,6 +108,8 @@
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Serialization" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ttaenc\ttaenc.csproj">
@@ -98,8 +118,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="..\..\ttaudio\MainForm.resx">
-      <Link>MainForm.resx</Link>
+    <EmbeddedResource Include="..\..\ttaudio\Editor.resx">
+      <Link>Editor.resx</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\ttaudio\Properties\Resources.resx">
+      <Link>Properties\Resources.resx</Link>
     </EmbeddedResource>
   </ItemGroup>
 </Project>

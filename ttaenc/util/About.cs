@@ -31,7 +31,7 @@ namespace ttaenc
         {
             get
             {
-                var a = Assembly.GetCallingAssembly();
+                var a = Assembly.GetEntryAssembly();
                 return new Uri(String.Format("https://github.com/{0}/{1}", Company, Product));
             }
         }
@@ -40,7 +40,7 @@ namespace ttaenc
         {
             get
             {
-                var a = Assembly.GetCallingAssembly();
+                var a = Assembly.GetEntryAssembly();
                 return a.GetCustomAttribute<AssemblyProductAttribute>().Product;
             }
         }
@@ -49,7 +49,7 @@ namespace ttaenc
         {
             get
             {
-                var a = Assembly.GetCallingAssembly();
+                var a = Assembly.GetEntryAssembly();
                 return a.GetCustomAttribute<AssemblyCompanyAttribute>().Company;
             }
         }

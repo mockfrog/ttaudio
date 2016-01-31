@@ -163,12 +163,22 @@ namespace ttaudio
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start(ttaenc.About.GithubUri.ToString());
+            ShowAboutInformation();
         }
 
         private void exploreDataDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Process.Start("explorer.exe", AlbumMaker.GetDefaultDataDirectory().Quote());
+            /*if (platform.OS.IsUnix)
+            {
+                string datadir = AlbumMaker.GetDefaultDataDirectory();
+                PathUtil.EnsureDirectoryExists(datadir);
+                Process.Start("xdg-open", datadir.Quote());
+            }
+            else
+            {
+                Process.Start("explorer.exe", AlbumMaker.GetDefaultDataDirectory().Quote());
+            }*/
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -348,7 +358,14 @@ namespace ttaudio
 
         public void ShowAboutInformation()
         {
-            Process.Start(ttaenc.About.GithubUri.ToString());
+            if (ttaenc.OS.IsUnix)
+            {
+                Process.Start("/usr/bin/xdg-open", ttaenc.About.GithubUri.ToString());
+            }
+            else
+            {
+                Process.Start(ttaenc.About.GithubUri.ToString());
+            }
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
