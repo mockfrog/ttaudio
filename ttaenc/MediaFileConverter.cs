@@ -13,20 +13,39 @@ namespace ttaenc
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
+        public static readonly string tttool_exe;
+        public static readonly string mpg123_exe;
+        public static readonly string oggenc_exe;
+        public static readonly string oggdec_exe;
         static MediaFileConverter()
         {
-            foreach (var p in new[] {
+            if (OS.IsWindows)
+            {
+                tttool_exe = "tttool.exe";
+                mpg123_exe = "mpg123.exe";
+                oggenc_exe = "oggenc2.exe";
+                oggdec_exe = "oggdec.exe";
+                foreach (var p in new[] {
                 "tools",
                 @"tools\tttool-win32-1.6",
                 @"tools\mpg123-1.22.0-x86-64"
                 })
-            {
-                var d = Path.Combine(PathUtil.GetDirectory(), p);
-                if (!Directory.Exists(d))
                 {
-                    throw new System.IO.FileNotFoundException(d);
+                    var d = Path.Combine(PathUtil.GetDirectory(), p);
+                    if (!Directory.Exists(d))
+                    {
+                        throw new System.IO.FileNotFoundException(d);
+                    }
+                    PathUtil.AddToPath(d);
                 }
-                PathUtil.AddToPath(d);
+            }
+            else
+            {
+                // Unix
+                tttool_exe = "tttool";
+                mpg123_exe = "mpg123";
+                oggenc_exe = "oggenc";
+                oggenc_exe = "oggdec";
             }
         }
 
@@ -51,14 +70,14 @@ namespace ttaenc
                             case mp3Extension:
                                 {
                                     await SubProcess.CheckedCall(cancellationToken
-                                        , "mpg123.exe",
+                                        , mpg123_exe,
                                         "-w", wavFile.Quote(),
                                         sourceFile.Quote());
 
                                     bool isMono = true;
 
                                     await SubProcess.CheckedCall(cancellationToken,
-                                        "oggenc2.exe",
+                                        oggenc_exe,
                                         wavFile.Quote(),
                                         ("--output=" + t.TempPath).Quote(),
                                         "--resample", "22500",
@@ -70,13 +89,13 @@ namespace ttaenc
                             case oggExtension:
                                 {
                                     bool isMono = GetIsMonoFromOggdecOutput(await SubProcess.GetOutput(cancellationToken
-                                        , "oggdec.exe",
+                                        , oggdec_exe,
                                         "--wavout", wavFile.Quote(),
                                         "-q",
                                         sourceFile.Quote()));
 
                                     await SubProcess.CheckedCall(cancellationToken,
-                                        "oggenc2.exe",
+                                        oggenc_exe,
                                         wavFile.Quote(),
                                         ("--output=" + t.TempPath).Quote(),
                                         "--resample", "22500",
@@ -88,7 +107,7 @@ namespace ttaenc
                             case wavExtension:
                                 {
                                     await SubProcess.CheckedCall(cancellationToken,
-                                        "oggenc2.exe",
+                                        oggenc_exe,
                                         sourceFile.Quote(),
                                         "-o", t.TempPath.Quote(),
                                         "--quiet",

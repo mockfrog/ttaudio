@@ -358,14 +358,7 @@ namespace ttaudio
 
         public void ShowAboutInformation()
         {
-            if (ttaenc.OS.IsUnix)
-            {
-                Process.Start("/usr/bin/xdg-open", ttaenc.About.GithubUri.ToString());
-            }
-            else
-            {
-                Process.Start(ttaenc.About.GithubUri.ToString());
-            }
+            ttaenc.OS.OpenHtmlFile(ttaenc.About.GithubUri.ToString());
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -432,7 +425,7 @@ namespace ttaudio
                 var testPage = Path.Combine(About.LocalApplicationDataDirectory, "tiptoi-printer-test.html");
                 PathUtil.EnsureParentDirectoryExists(testPage);
                 OidSvgWriter.CreatePrinterTestPage(testPage);
-                Process.Start(testPage);
+                OS.OpenHtmlFile(testPage);
             }, TaskCreationOptions.LongRunning);
         }
 

@@ -66,7 +66,7 @@ namespace ttaenc
             WriteHtml(cancellationToken);
 
             // open html
-            Process.Start(packageDirectoryStructure.HtmlFile);
+            OS.OpenHtmlFile(packageDirectoryStructure.HtmlFile);
 
             cancellationToken.ThrowIfCancellationRequested();
 
@@ -255,7 +255,7 @@ Style: ");
             WriteHtml(cancellationToken);
 
             // open html
-            Process.Start(packageDirectoryStructure.HtmlFile);
+            OS.OpenHtmlFile(packageDirectoryStructure.HtmlFile);
         }
 
         void PrepareInputFiles(CancellationToken cancellationToken)
@@ -277,7 +277,15 @@ Style: ");
 
         private async Task Assemble(CancellationToken cancellationToken)
         {
-            await SubProcess.Cmd(cancellationToken, String.Format("tttool assemble {0} {1}", yamlFile.Quote(), packageDirectoryStructure.GmeFile.Quote()));
+            if (OS.IsWindows)
+            {
+                await SubProcess.Cmd(cancellationToken, String.Format("tttool assemble {0} {1}", yamlFile.Quote(), packageDirectoryStructure.GmeFile.Quote()));
+            }
+            else
+            {
+                await SubProcess.CheckedCall(cancellationToken, MediaFileConverter.tttool_exe, yamlFile.Quote(), packageDirectoryStructure.GmeFile.Quote());
+            }
+                
         }
 
         /// <summary>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 // Copyright (c) https://github.com/sidiandi 2016
 // 
 // This file is part of tta.
@@ -26,6 +27,26 @@ namespace ttaenc
             {
                 int p = (int) Environment.OSVersion.Platform;
                 return (p == 4) || (p == 6) || (p == 128);
+            }
+        }
+
+        public static bool IsWindows
+        {
+            get
+            {
+                return !IsUnix;
+            }
+        }
+
+        public static void OpenHtmlFile(string filePath)
+        {
+            if (IsUnix)
+            {
+                Process.Start("xdg-open", filePath.Quote());
+            }
+            else
+            {
+                Process.Start(filePath);
             }
         }
     }
