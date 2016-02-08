@@ -104,6 +104,21 @@
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="util\OS.cs" />
+    <Compile Include="..\..\ttaenc\IProductIdProvider.cs">
+      <Link>IProductIdProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaenc\ProductIdProvider.cs">
+      <Link>ProductIdProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaenc\util\XmlSerializerUtil.cs">
+      <Link>util\XmlSerializerUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaenc\util\Rfc3339Converter.cs">
+      <Link>util\Rfc3339Converter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ttaenc\util\DateTimeExtensions.cs">
+      <Link>util\DateTimeExtensions.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\ttaenc\App.config">
@@ -129,5 +144,6 @@
     <Reference Include="log4net">
       <HintPath>packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
 </Project>
